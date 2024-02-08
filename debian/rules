@@ -1,0 +1,43 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+#
+# Expected debian/rules file that is used by the dpkg build procedure
+#
+#   $ git clone <nfs-ganesha>
+#   $ cd nfs-ganesha/src
+#   $ dpkg-buildpackage -uc -us
+#
+
+export DH_VERBOSE=1
+export PREFIX=/usr
+export DESTDIR=$(CURDIR)/debian/tmp
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		--log-level=VERBOSE \
+		-DCMAKE_INSTALL_LIBDIR:PATH=lib/${DEB_HOST_MULTIARCH} \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo  \
+		-DBUILD_SHARED_LIBS:BOOL=on \
+		-DBUILD_LIBHDFSPP:BOOL=off \
+		-DSNAPPY_HOME="/usr" \
+		-DLZ4_HOME="/usr" \
+		-DZLIB_HOME="/usr" \
+		-DZSTD_HOME="/usr" \
+		-DPROTOBUF_HOME="/usr" \
+		-Dorc_VERSION="%{version}" \
+		-DBUILD_CPP_TESTS=off \
+		-DBUILD_TOOLS=off \
+		-DBUILD_JAVA=off \
+		-DANALYZE_JAVA=off \
+		"-GUnix Makefiles"
+
+override_dh_auto_build:
+
+override_dh_auto_test:
+
