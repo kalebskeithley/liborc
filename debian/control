@@ -1,4 +1,4 @@
-Source: liborc
+Source: libapacheorc
 Section: net
 Priority: optional
 Maintainer: Gluster Packager <glusterpackager@download.gluster.org>
@@ -16,7 +16,7 @@ Build-Depends: debhelper (>= 10),
 	liblz4-dev,
 	libsnappy-dev
 
-Package: liborc1
+Package: libapacheorc1
 Architecture: any
 Depends: gnupg2,
 	protobuf,
@@ -39,10 +39,10 @@ Description: ORC is a self-describing type-aware columnar file format designed
  .
  This package contains the binaries
 
-Package: liborc-dev
+Package: libapacheorc-dev
 Section: libdevel
 Architecture: any
-Depends: liborc1
+Depends: libapacheorc1
 Description: ORC is a self-describing type-aware columnar file format designed
  for Hadoop workloads. It is optimized for large streaming reads,
  but with integrated support for finding required rows quickly.

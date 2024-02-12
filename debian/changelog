@@ -1,12 +1,6 @@
-liborc (1.9.2-ubuntu1~mantic2) mantic; urgency=medium
+libapacheorc (1.9.2-ubuntu1~jammy1) jammy; urgency=medium
 
   * orc 1.9.2, GA
 
  -- GlusterFS GlusterFS deb packages <deb.packages@gluster.org>  Thu, 8 Feb 2024 09:45:51 -0400
-
-liborc (1.9.2-ubuntu1~mantic1) mantic; urgency=medium
-
-  * orc 1.9.2, GA
-
- -- GlusterFS GlusterFS deb packages <deb.packages@gluster.org>  Mon, 5 Feb 2024 09:45:51 -0400
 
