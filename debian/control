@@ -19,11 +19,11 @@ Build-Depends: debhelper (>= 10),
 Package: libapacheorc1
 Architecture: any
 Depends: gnupg2,
-	protobuf,
-	zlib,
-	libzstd,
-	lz4,
-	snappy
+	libprotobuf23,
+	zlib1g,
+	libzstd1,
+	liblz4-1,
+	libsnappy1v5
 Description: ORC is a self-describing type-aware columnar file format designed
  for Hadoop workloads. It is optimized for large streaming reads,
  but with integrated support for finding required rows quickly.
